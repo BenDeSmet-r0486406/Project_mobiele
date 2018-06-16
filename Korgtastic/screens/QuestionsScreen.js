@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles/Styles.js';
 import { StyleSheet, Text, View,TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
 
-export default class HomeScreen extends React.Component {
+export default class QuestionsScreen extends React.Component {
 
     static navigationOptions = () => ({
         title: 'Korgtastic',
@@ -21,10 +21,9 @@ export default class HomeScreen extends React.Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation
         return(
             <View>
-                <Text style={styles.TestText}>TEST TESTT</Text>
+                <Text style={styles.TestText}>Questions here</Text>
             </View>
         );
     }
