@@ -26,5 +26,20 @@ var styles = StyleSheet.create({
         textAlign: 'center',
         fontSize:  20,
     },
+    ListHeader:
+    {
+        paddingTop: 2,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 2,
+        fontSize: 18,
+        fontWeight: 'bold',
+      },
+      ListItem:
+      {
+        padding: 10,
+        fontSize: 14,
+        backgroundColor: '#fefefe',
+      },
 });
 module.exports = styles;
