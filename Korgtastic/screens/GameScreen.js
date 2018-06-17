@@ -61,19 +61,19 @@ export default class GameScreen extends React.Component {
     render() {
         return(
             <View style={{flex: 1}}>
-                <View style={styles.QuestionView}>
-                    <Text style={styles.QuestionText}>{this.state.Opdracht}</Text>
+                <View style={styles.questionView}>
+                    <Text style={styles.questionText}>{this.state.Opdracht}</Text>
                 </View>
-                <View style={styles.ButtonsView}>
+                <View style={styles.buttonsView}>
                     <TouchableHighlight
                         style={[styles.acceptButton]}
                         onPress={this.randomOpdracht}>
-                        <Text style={styles.ButtonText}>DO IT</Text>
+                        <Text style={styles.buttonText}>DO IT</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
                         style={[styles.refuseButton]}
                         onPress={this.randomOpdracht}>
-                        <Text style={styles.ButtonText}>DRINK {this.state.Graad} SIPS</Text>
+                        <Text style={styles.buttonText}>DRINK {this.state.Graad} SIPS</Text>
                     </TouchableHighlight>
                 </View>
             </View>

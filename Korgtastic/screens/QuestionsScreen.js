@@ -31,8 +31,8 @@ export default class QuestionsScreen extends React.Component {
                         {title: 'Difficulty 4', data: ['Vraag 1', 'Vraag 2', 'Vraag 3', 'Vraag 4']},
                         {title: 'Difficulty 5', data: ['Vraag 1', 'Vraag 2', 'Vraag 3', 'Vraag 4']},
                     ]}
-                    renderItem={({item}) => <Text style={styles.ListItem}>{item}</Text>}
-                    renderSectionHeader={({section}) => <Text style={styles.ListHeader}>{section.title}</Text>}
+                    renderItem={({item}) => <Text style={styles.listItem}>{item}</Text>}
+                    renderSectionHeader={({section}) => <Text style={styles.listHeader}>{section.title}</Text>}
                     keyExtractor={(item, index) => index}
                 />
             </View>

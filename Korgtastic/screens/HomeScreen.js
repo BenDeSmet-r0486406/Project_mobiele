@@ -24,8 +24,7 @@ export default class HomeScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={styles.HomeView}>
-                <Text style={styles.TestText}>welcome to Korgtastic</Text>
+            <View style={styles.homeView}>
                 <CustomButton
                     navigation={this.props.navigation}
                     text='Start game'

@@ -14,9 +14,9 @@ export default class CustomButton extends React.Component {
         
         return (
             <TouchableHighlight
-                style={[styles.Button, buttonStyle]}
+                style={[styles.button, buttonStyle]}
                 onPress={() => navigate(this.props.navigateTo)}>
-                <Text style={styles.ButtonText}>{this.props.text}</Text>
+                <Text style={styles.buttonText}>{this.props.text}</Text>
             </TouchableHighlight>
         );
     }
