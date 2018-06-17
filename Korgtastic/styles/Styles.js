@@ -5,12 +5,12 @@ import { AppRegistry, Text, View } from 'react-native';
 var styles = StyleSheet.create({
     /* ALGEMEEN */
     
-    Button:
+    button:
     {
         backgroundColor: '#303030',
         padding: 16,
     },
-    ButtonText:
+    buttonText:
     {
         color: 'white',
         textAlign: 'center',
@@ -18,43 +18,36 @@ var styles = StyleSheet.create({
     },
 
     /* HOMESCREEN*/
-    HomeView: 
+    homeView: 
     {
         flex: 1,
         flexDirection: 'column',
     },
-    TestText:
-    {
-        color: 'black',
-        fontSize: 20,
-        alignSelf: 'center',
-        flex: 12,
-    },
 
     /* GAMESCREEN */
-    ScoreBoardView:
+    scoreBoardView:
     {
         backgroundColor: '#333',
         padding: 10,
     },
-    ScoreBoardText: {
+    scoreBoardText: {
         color: 'white',
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'right',
         
     },
-    QuestionView:
+    questionView:
     {
         flex: 12,
         padding: 20,
     },
-    QuestionText:
+    questionText:
     {
         fontSize: 36,
         textAlign: 'center',
     },
-    ButtonsView:
+    buttonsView:
     {
         flex: 4,
     },
@@ -69,8 +62,23 @@ var styles = StyleSheet.create({
         padding: 16,
     },
 
+    /* PLAYERSSCREEN */
+
+    addPlayerButtonIcon:
+    {
+        fontSize: 36,
+        color: '#999',
+        alignSelf: 'center',
+    },
+    playerInput:
+    {
+        height: 50,
+        fontSize: 22,
+    },
+
+
     /* QUESTIONSSCREEN */
-    ListHeader:
+    listHeader:
     {
         paddingTop: 2,
         paddingLeft: 10,
@@ -79,7 +87,7 @@ var styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
-    ListItem:
+    listItem:
     {
         padding: 10,
         fontSize: 14,
