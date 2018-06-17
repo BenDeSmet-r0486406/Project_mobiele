@@ -58,6 +58,16 @@ var styles = StyleSheet.create({
     {
         flex: 4,
     },
+    refuseButton:
+    {
+        backgroundColor: '#e74c3c',
+        padding: 16,
+    },
+    acceptButton:
+    {
+        backgroundColor: '#2ecc71',
+        padding: 16,
+    },
 
     /* QUESTIONSSCREEN */
     ListHeader:
