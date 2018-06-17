@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { StyleSheet, Text, View, SectionList, TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
+import { Text, View, SectionList } from 'react-native';
+import opdrachtenData from '../opdrachten/Normal.json';
 
 export default class QuestionsScreen extends React.Component {
 
@@ -25,11 +26,11 @@ export default class QuestionsScreen extends React.Component {
             <View>
                 <SectionList
                     sections={[
-                        {title: 'Difficulty 1', data: ['Vraag 1', 'Vraag 2', 'Vraag 3', 'Vraag 4']},
-                        {title: 'Difficulty 2', data: ['Vraag 1', 'Vraag 2', 'Vraag 3', 'Vraag 4']},
-                        {title: 'Difficulty 3', data: ['Vraag 1', 'Vraag 2', 'Vraag 3', 'Vraag 4']},
-                        {title: 'Difficulty 4', data: ['Vraag 1', 'Vraag 2', 'Vraag 3', 'Vraag 4']},
-                        {title: 'Difficulty 5', data: ['Vraag 1', 'Vraag 2', 'Vraag 3', 'Vraag 4']},
+                        {title: 'Difficulty 1', data: opdrachtenData.graad1},
+                        {title: 'Difficulty 2', data: opdrachtenData.graad2},
+                        {title: 'Difficulty 3', data: opdrachtenData.graad3},
+                        {title: 'Difficulty 4', data: opdrachtenData.graad4},
+                        {title: 'Difficulty 5', data: opdrachtenData.graad5},
                     ]}
                     renderItem={({item}) => <Text style={styles.listItem}>{item}</Text>}
                     renderSectionHeader={({section}) => <Text style={styles.listHeader}>{section.title}</Text>}

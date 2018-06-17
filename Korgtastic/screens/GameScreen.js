@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { StyleSheet, Text, View,ScrollView, Button, TouchableHighlight} from 'react-native';
+import { Text, View, TouchableHighlight } from 'react-native';
 import opdrachtenData from '../opdrachten/Normal.json';
 
 export default class GameScreen extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { StyleSheet, Text, View, TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
+import { Text, View, TouchableHighlight } from 'react-native';
 
 export default class HomeScreen extends React.Component {
 
