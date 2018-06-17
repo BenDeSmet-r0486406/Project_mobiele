@@ -34,7 +34,7 @@ export default class PlayersScreen extends React.Component {
 
         if(playerInput.length < 10) {
             playerInput.push(
-                <View style={{marginBottom: 15}}>
+                <View style={{marginBottom: 15}} key={key}>
                     <Text style={{fontSize: 16, color: '#555'}}>Player {key + 1}:</Text>
                     <TextInput
                         style={styles.playerInput}
