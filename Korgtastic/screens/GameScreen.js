@@ -6,13 +6,13 @@ import opdrachtenData from '../opdrachten/Normal.json';
 export default class GameScreen extends React.Component {
 
     static navigationOptions = () => ({
-        title: 'Score: 10',
+        title: 'Korgtastic',
         headerTintColor: '#ffffff',
         headerStyle:
-            {
-                backgroundColor: '#333',
-            },
-
+        {
+            backgroundColor: '#333',
+        },
+        headerLeft: null,
     });
 
     constructor(props) {
@@ -20,12 +20,27 @@ export default class GameScreen extends React.Component {
         this.state = 
         {
             Opdracht : "First things first, everybody take a sip of your glass to get started",
-            Graad : 1
+            Graad : 1,
+            Score: 0,
         }
+        this.acceptChallenge = this.acceptChallenge.bind(this);
+        this.denyChallenge = this.denyChallenge.bind(this);
         this.randomOpdracht = this.randomOpdracht.bind(this);
     }
 
-    randomOpdracht(){
+    acceptChallenge() {
+        var newScore = this.state.Score + this.state.Graad
+        this.setState({Score : newScore});
+        this.randomOpdracht();
+    }
+
+    denyChallenge() {
+        var newScore = this.state.Score - this.state.Graad
+        this.setState({Score : newScore});
+        this.randomOpdracht();
+    }
+
+    randomOpdracht() {
         var newOpdracht = "";
         var newGraad = 0;
 
@@ -61,18 +76,21 @@ export default class GameScreen extends React.Component {
     render() {
         return(
             <View style={{flex: 1}}>
+                <View style={styles.scoreBoardView}>
+                    <Text style={styles.scoreBoardText}>Score: {this.state.Score}</Text>
+                </View>
                 <View style={styles.questionView}>
                     <Text style={styles.questionText}>{this.state.Opdracht}</Text>
                 </View>
                 <View style={styles.buttonsView}>
                     <TouchableHighlight
                         style={[styles.acceptButton]}
-                        onPress={this.randomOpdracht}>
+                        onPress={this.acceptChallenge}>
                         <Text style={styles.buttonText}>DO IT</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
                         style={[styles.refuseButton]}
-                        onPress={this.randomOpdracht}>
+                        onPress={this.denyChallenge}>
                         <Text style={styles.buttonText}>DRINK {this.state.Graad} SIPS</Text>
                     </TouchableHighlight>
                 </View>
