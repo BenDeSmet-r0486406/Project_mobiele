@@ -17,7 +17,35 @@ export default class PlayersScreen extends React.Component {
     constructor(props) {
 		super(props);
         this.state = 
-        {}
+        {
+            playerInput: []
+        }
+
+        this.addPlayerInput(0);
+        this.addPlayerInput(1);
+    }
+
+    addPlayerInput = (key) => {
+        let playerInput = this.state.playerInput;
+        
+        if(playerInput.length < 10) {
+            playerInput.push(
+                <View style={{marginBottom: 15}}>
+                    <Text style={{fontSize: 16, color: '#555'}}>Player {key + 1}:</Text>
+                    <TextInput style={styles.playerInput} />
+                </View>
+            );
+            this.setState({playerInput});
+        }
+    }
+
+    removePlayerInput = (key) => {
+        let playerInput = this.state.playerInput;
+
+        if(playerInput.length > 2) {
+            playerInput.pop();
+            this.setState({playerInput});
+        }
     }
 
     render() {
@@ -30,19 +58,13 @@ export default class PlayersScreen extends React.Component {
                 </View>
                 <View style={{flex: 5, padding: 10}}>
                     <ScrollView>
-                        <View style={{marginBottom: 15}}>
-                            <Text style={{fontSize: 16, color: '#555'}}>Player 1:</Text>
-                            <TextInput style={styles.playerInput} />
-                        </View>
-                        <View style={{marginBottom: 15}}>
-                            <Text style={{fontSize: 16, color: '#555'}}>Player 2:</Text>
-                            <TextInput style={styles.playerInput} />
-                        </View>
+                        {this.state.playerInput.map((value, index) => { return value })}
+
                         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginLeft: 130, marginRight: 130}}>
-                            <TouchableHighlight>
+                            <TouchableHighlight onPress={() => this.addPlayerInput(this.state.playerInput.length)}>
                                 <Text style={styles.addPlayerButtonIcon}>+</Text>
                             </TouchableHighlight>
-                            <TouchableHighlight>
+                            <TouchableHighlight onPress={() => this.removePlayerInput()}>
                                 <Text style={styles.addPlayerButtonIcon}>-</Text>
                             </TouchableHighlight>
                         </View>
