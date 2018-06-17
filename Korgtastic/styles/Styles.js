@@ -34,13 +34,19 @@ var styles = StyleSheet.create({
     /* GAMESCREEN */
     ScoreBoardView:
     {
-        flex: 1,
-        backgroundColor: 'lightpink',
+        backgroundColor: '#333',
+        padding: 10,
+    },
+    ScoreBoardText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'right',
+        
     },
     QuestionView:
     {
         flex: 12,
-        backgroundColor: 'lightblue',
         padding: 20,
     },
     QuestionText:
