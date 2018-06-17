@@ -21,7 +21,9 @@ export default class PlayersScreen extends React.Component {
             playerInput: [],
             playerNames: [],
         }
+    }
 
+    componentDidMount() {
         this.addPlayerInput(0);
         this.addPlayerInput(1);
     }
@@ -36,8 +38,7 @@ export default class PlayersScreen extends React.Component {
                     <Text style={{fontSize: 16, color: '#555'}}>Player {key + 1}:</Text>
                     <TextInput
                         style={styles.playerInput}
-                        onChangeText={name => this.setPlayerName(name, key)}
-                        />
+                        onChangeText={name => this.setPlayerName(name, key)} />
                 </View>
             );
 
@@ -73,7 +74,7 @@ export default class PlayersScreen extends React.Component {
 
         this.setState({playerNames});
     }
-    
+
     render() {
         const { navigate } = this.props.navigation;
         return(
