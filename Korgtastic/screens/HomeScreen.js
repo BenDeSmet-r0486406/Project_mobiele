@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
 import { StyleSheet, Text, View, TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
+import CustomButton from '../components/CustomButton.js';
 
 export default class HomeScreen extends React.Component {
 
@@ -25,16 +26,14 @@ export default class HomeScreen extends React.Component {
         return (
             <View style={styles.HomeView}>
                 <Text style={styles.TestText}>TEST TESTT</Text>
-                <TouchableHighlight
-                    onPress={() => navigate('Game')}
-                    style={styles.Button}>
-                    <Text style={styles.ButtonText}>Start game</Text>
-                </TouchableHighlight>
-                <TouchableHighlight
-                    onPress={() => navigate('Questions')}
-                    style={styles.Button}>
-                    <Text style={styles.ButtonText}>View questions</Text>
-                </TouchableHighlight>
+                <CustomButton
+                    navigation={this.props.navigation}
+                    text='Start game'
+                    navigateTo='Game' />
+                <CustomButton
+                    navigation={this.props.navigation}
+                    text='View questions'
+                    navigateTo='Questions' />
             </View>
         );
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
 import { StyleSheet, Text, View,TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
+import CustomButton from '../components/CustomButton.js';
 
 export default class GameScreen extends React.Component {
 
@@ -29,17 +30,15 @@ export default class GameScreen extends React.Component {
                 <View style={styles.QuestionView}>
                     <Text style={styles.QuestionText}>question goes here</Text>
                 </View>
-                <View style={{flex: 2}}>
-                    <TouchableHighlight
-                        style={styles.Button}>
-                        <Text style={styles.ButtonText}>Doen</Text>
-                    </TouchableHighlight>
-                </View>
-                <View style={{flex: 2}}>
-                    <TouchableHighlight
-                        style={styles.Button}>
-                        <Text style={styles.ButtonText}>Weigeren</Text>
-                    </TouchableHighlight>
+                <View style={styles.ButtonsView}>
+                    <CustomButton
+                        navigation={this.props.navigation}
+                        text='Doen'
+                        color='#2ecc71' />
+                    <CustomButton
+                        navigation={this.props.navigation}
+                        text='Weigeren'
+                        color='#e74c3c' />
                 </View>
             </View>
         );

@@ -48,6 +48,10 @@ var styles = StyleSheet.create({
         fontSize: 36,
         textAlign: 'center',
     },
+    ButtonsView:
+    {
+        flex: 4,
+    },
 
     /* QUESTIONSSCREEN */
     ListHeader:
