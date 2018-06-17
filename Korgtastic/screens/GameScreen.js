@@ -1,16 +1,17 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { StyleSheet, Text, View,TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View,ScrollView, Button} from 'react-native';
 import CustomButton from '../components/CustomButton.js';
+import opdrachtenData from '../opdrachten/Normal.json';
 
 export default class GameScreen extends React.Component {
 
     static navigationOptions = () => ({
-        title: 'Korgtastic',
+        title: 'Score: 10',
         headerTintColor: '#ffffff',
         headerStyle:
             {
-                backgroundColor: '#000000',
+                backgroundColor: '#333',
             },
 
     });
@@ -18,26 +19,35 @@ export default class GameScreen extends React.Component {
     constructor(props) {
 		super(props);
         this.state = 
-        {}
+        {
+            Opdracht : "First things first, everybody take a sip of your glass to get started",
+            Graad : 0
+        }
+        this.randomOpdracht = this.randomOpdracht.bind(this);
+    }
+
+    componentDidMount(){
+    }
+
+
+    randomOpdracht(){
+        this.setState({Opdracht : opdrachtenData.graad1[0] })
     }
 
     render() {
         return(
             <View style={{flex: 1}}>
-                <View style={styles.ScoreBoardView}>
-                    <Text style={styles.ScoreBoardText}>Score: 10</Text>
-                </View>
                 <View style={styles.QuestionView}>
-                    <Text style={styles.QuestionText}>question goes here</Text>
+                    <Text style={styles.QuestionText}>{this.state.Opdracht}</Text>
                 </View>
                 <View style={styles.ButtonsView}>
-                    <CustomButton
-                        navigation={this.props.navigation}
-                        text='Doen'
+                    <Button
+                        onPress={this.randomOpdracht }
+                        title='Do it'
                         color='#2ecc71' />
-                    <CustomButton
-                        navigation={this.props.navigation}
-                        text='Weigeren'
+                    <Button
+                        onPress={this.randomOpdracht}
+                        title='Refuse'
                         color='#e74c3c' />
                 </View>
             </View>
