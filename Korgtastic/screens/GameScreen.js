@@ -25,7 +25,7 @@ export default class GameScreen extends React.Component {
         return(
             <View style={{flex: 1}}>
                 <View style={styles.ScoreBoardView}>
-                    <Text>Scoreboard</Text>
+                    <Text style={styles.ScoreBoardText}>Score: 10</Text>
                 </View>
                 <View style={styles.QuestionView}>
                     <Text style={styles.QuestionText}>question goes here</Text>
