@@ -3,29 +3,53 @@ import { StyleSheet } from 'react-native';
 import { AppRegistry, Text, View } from 'react-native';
 
 var styles = StyleSheet.create({
-    TestText:
-    {
-        color: 'black',
-        fontSize: 20,
-        alignSelf: 'center',
-    },
-    HomeView: 
-    {
-        flex: 1,
-        flexDirection: 'column',
-    },
+    /* ALGEMEEN */
+    
     Button:
     {
-        height: 30,
         backgroundColor: '#303030',
-        marginBottom: 10,
+        padding: 16,
     },
     ButtonText:
     {
         color: 'white',
         textAlign: 'center',
-        fontSize:  20,
+        fontSize:  24,
     },
+
+    /* HOMESCREEN*/
+    HomeView: 
+    {
+        flex: 1,
+        flexDirection: 'column',
+    },
+    TestText:
+    {
+        color: 'black',
+        fontSize: 20,
+        alignSelf: 'center',
+        flex: 12,
+    },
+
+    /* GAMESCREEN */
+    ScoreBoardView:
+    {
+        flex: 1,
+        backgroundColor: 'lightpink',
+    },
+    QuestionView:
+    {
+        flex: 12,
+        backgroundColor: 'lightblue',
+        padding: 20,
+    },
+    QuestionText:
+    {
+        fontSize: 36,
+        textAlign: 'center',
+    },
+
+    /* QUESTIONSSCREEN */
     ListHeader:
     {
         paddingTop: 2,
@@ -34,12 +58,12 @@ var styles = StyleSheet.create({
         paddingBottom: 2,
         fontSize: 18,
         fontWeight: 'bold',
-      },
-      ListItem:
-      {
+    },
+    ListItem:
+    {
         padding: 10,
         fontSize: 14,
         backgroundColor: '#fefefe',
-      },
+    },
 });
 module.exports = styles;

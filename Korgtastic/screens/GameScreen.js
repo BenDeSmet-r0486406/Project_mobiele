@@ -22,8 +22,25 @@ export default class GameScreen extends React.Component {
 
     render() {
         return(
-            <View>
-                <Text style={styles.TestText}>The game goes here</Text>
+            <View style={{flex: 1}}>
+                <View style={styles.ScoreBoardView}>
+                    <Text>Scoreboard</Text>
+                </View>
+                <View style={styles.QuestionView}>
+                    <Text style={styles.QuestionText}>question goes here</Text>
+                </View>
+                <View style={{flex: 2}}>
+                    <TouchableHighlight
+                        style={styles.Button}>
+                        <Text style={styles.ButtonText}>Doen</Text>
+                    </TouchableHighlight>
+                </View>
+                <View style={{flex: 2}}>
+                    <TouchableHighlight
+                        style={styles.Button}>
+                        <Text style={styles.ButtonText}>Weigeren</Text>
+                    </TouchableHighlight>
+                </View>
             </View>
         );
     }
