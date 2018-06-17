@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { StyleSheet, Text, View,TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, TextInput,ScrollView,TouchableHighlight,Image, ImageBackground} from 'react-native';
+import CustomButton from '../components/CustomButton.js';
 
 export default class HomeScreen extends React.Component {
 
@@ -21,9 +22,18 @@ export default class HomeScreen extends React.Component {
     }
 
     render() {
-        return(
-            <View>
+        const { navigate } = this.props.navigation;
+        return (
+            <View style={styles.HomeView}>
                 <Text style={styles.TestText}>TEST TESTT</Text>
+                <CustomButton
+                    navigation={this.props.navigation}
+                    text='Start game'
+                    navigateTo='Game' />
+                <CustomButton
+                    navigation={this.props.navigation}
+                    text='View questions'
+                    navigateTo='Questions' />
             </View>
         );
     }
