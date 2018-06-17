@@ -62,6 +62,21 @@ var styles = StyleSheet.create({
         padding: 16,
     },
 
+    /* PLAYERSSCREEN */
+
+    addPlayerButtonIcon:
+    {
+        fontSize: 36,
+        color: '#999',
+        alignSelf: 'center',
+    },
+    playerInput:
+    {
+        height: 50,
+        fontSize: 22,
+    },
+
+
     /* QUESTIONSSCREEN */
     listHeader:
     {

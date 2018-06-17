@@ -26,13 +26,13 @@ export default class HomeScreen extends React.Component {
             <View style={styles.homeView}>
                 <TouchableHighlight
                     style={styles.button}
-                    onPress={() => navigate('Game')}>
-                    <Text style={styles.buttonText}>Start game</Text>
+                    onPress={() => navigate('Players')}>
+                    <Text style={styles.buttonText}>CREATE GAME</Text>
                 </TouchableHighlight>
                 <TouchableHighlight
                     style={styles.button}
                     onPress={() => navigate("Questions")}>
-                    <Text style={styles.buttonText}>View questions</Text>
+                    <Text style={styles.buttonText}>VIEW QUESTIONS</Text>
                 </TouchableHighlight>
             </View>
         );
