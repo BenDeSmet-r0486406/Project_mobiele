@@ -15,9 +15,8 @@ YellowBox.ignoreWarnings([
 ]);
 
 const Navigation = createStackNavigator({
-  End:{screen: EndScreen},
-
   Home:{screen: HomeScreen},
+  End:{screen: EndScreen},
   Game:{screen: GameScreen},
   Questions:{screen: QuestionsScreen},
   Scoreboard:{screen: ScoreScreen},

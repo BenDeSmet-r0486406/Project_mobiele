@@ -6,37 +6,39 @@ import opdrachtenData from '../opdrachten/Normal.json';
 export default class GameScreen extends React.Component {
 
     static navigationOptions = () => ({
-        title: 'Korgtastic',
-        headerTintColor: '#ffffff',
-        headerStyle:
-        {
-            backgroundColor: '#333',
-        },
-        headerLeft: null,
+        header: null,
     });
 
     constructor(props) {
 		super(props);
         this.state = 
         {
+            playerNames : this.props.navigation.state.params.players,
             Opdracht : "First things first, everybody take a sip of your glass to get started",
             Graad : 1,
             Score: 0,
+            turn: 0,
         }
         this.acceptChallenge = this.acceptChallenge.bind(this);
         this.denyChallenge = this.denyChallenge.bind(this);
         this.randomOpdracht = this.randomOpdracht.bind(this);
     }
 
+    
+
     acceptChallenge() {
-        var newScore = this.state.Score + this.state.Graad
-        this.setState({Score : newScore});
+        var newScore = this.state.playerNames[this.state.turn].score + this.state.Graad
+        var newPlayers = this.state.playerNames
+        newPlayers[this.state.turn].score = newScore;
+        this.setState({playerNames : newPlayers});
         this.randomOpdracht();
     }
 
     denyChallenge() {
-        var newScore = this.state.Score - this.state.Graad
-        this.setState({Score : newScore});
+        var newScore = this.state.playerNames[this.state.turn].score - this.state.Graad
+        var newPlayers = this.state.playerNames
+        newPlayers[this.state.turn].score = newScore;
+        this.setState({playerNames : newPlayers});
         this.randomOpdracht();
     }
 
@@ -71,27 +73,37 @@ export default class GameScreen extends React.Component {
         } else {
             this.setState({Opdracht : newOpdracht});
         }
+        var newTurn = (this.state.turn + 1) % this.state.playerNames.length;
+        this.setState({turn : newTurn});
+    }
+
+    goToEndGame(players){
+        this.props.navigation.navigate("End", {players : players})
     }
 
     render() {
         return(
             <View style={{flex: 1}}>
                 <View style={styles.scoreBoardView}>
-                    <Text style={styles.scoreBoardText}>Score: {this.state.Score}</Text>
+                    <Text style={styles.scoreBoardNameText}>{this.state.playerNames[this.state.turn].name} : {this.state.playerNames[this.state.turn].score}</Text>
+                    <TouchableHighlight
+                        onPress={() => this.goToEndGame(this.state.playerNames)}>
+                        <Text style={styles.scoreBoardText}>ScoreBoard</Text>
+                    </TouchableHighlight>
                 </View>
                 <View style={styles.questionView}>
                     <Text style={styles.questionText}>{this.state.Opdracht}</Text>
                 </View>
                 <View style={styles.buttonsView}>
                     <TouchableHighlight
-                        style={[styles.acceptButton]}
+                        style={styles.acceptButton}
                         onPress={this.acceptChallenge}>
-                        <Text style={styles.buttonText}>DO IT</Text>
+                        <Text style={styles.buttonText}>DO IT + {this.state.Graad}</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        style={[styles.refuseButton]}
+                        style={styles.refuseButton}
                         onPress={this.denyChallenge}>
-                        <Text style={styles.buttonText}>DRINK {this.state.Graad} SIPS</Text>
+                        <Text style={styles.buttonText}>REFUSE - {this.state.Graad}</Text>
                     </TouchableHighlight>
                 </View>
             </View>

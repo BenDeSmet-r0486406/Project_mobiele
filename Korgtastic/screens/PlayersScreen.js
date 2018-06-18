@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
 import { Text, View, TextInput, TouchableHighlight, ScrollView } from 'react-native';
+import AppJs from '../App.js';
 
 export default class PlayersScreen extends React.Component {
 
@@ -71,8 +72,15 @@ export default class PlayersScreen extends React.Component {
         };
 
         console.log(playerNames);
-
         this.setState({playerNames});
+    }
+
+    goToGame(players){
+        if(this.state.playerNames.length >= 2){
+            this.props.navigation.navigate("Game", {players : players});
+        } else {
+            alert("minimum 2 players required");
+        }
     }
 
     render() {
@@ -100,7 +108,7 @@ export default class PlayersScreen extends React.Component {
                 <View>
                     <TouchableHighlight
                         style={styles.button}
-                        onPress={() => navigate("Game")}>
+                        onPress={() => this.goToGame(this.state.playerNames)}>
                         <Text style={styles.buttonText}>START GAME</Text>
                     </TouchableHighlight>
                 </View>

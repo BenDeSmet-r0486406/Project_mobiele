@@ -5,7 +5,7 @@ import { Text, View, FlatList, TouchableHighlight } from 'react-native';
 export default class EndScreen extends React.Component {
 
     static navigationOptions = () => ({
-        title: 'Endscreen',
+        title: 'Back to the game',
         headerTintColor: '#ffffff',
         headerStyle:
             {
@@ -18,47 +18,24 @@ export default class EndScreen extends React.Component {
 		super(props);
         this.state = 
         {
-            positions: [
-                {
-                    name: 'Trump',
-                    score: 150,
-                    position: 1,
-                },
-                {
-                    name: 'Ben',
-                    score: 50,
-                    position: 2,
-                },
-                {
-                    name: 'Wouter',
-                    score: 20,
-                    position: 3,
-                },
-                {
-                    name: 'Cedric',
-                    score: 20,
-                    position: 3,
-                },
-            ],
+            players : this.props.navigation.state.params.players
         }
     }
 
     render() {
-        let winner = this.state.positions[0];
 
         return(
 
             <View style={{flex: 1}}>
                 <View style={{flex: 1, padding: 20}}>
-                    <Text>Winner:</Text>
+                    <Text>Winner: </Text>
                 </View>
                 <View style={{flex: 9, padding: 20}}>
                     <FlatList
-                        data={this.state.positions}
+                        data={this.state.players}
                         keyExtractor={(item, index) => item.name}
                         renderItem={({item}) =>
                             <View style={{flexDirection: 'row', height: 50}}>
-                                <Text style={{flex: 1, fontSize: 18}}>{item.position}</Text>
                                 <Text style={{flex: 5, fontSize: 18}}>{item.name}</Text>
                                 <Text style={{flex: 2, fontSize: 18}}>{item.score}</Text>
                             </View>
@@ -68,11 +45,11 @@ export default class EndScreen extends React.Component {
                 <View style={styles.buttonsView}>
                     <TouchableHighlight
                         style={styles.button}>
-                        <Text style={styles.buttonText}>PLAY AGAIN</Text>
+                        <Text style={styles.buttonText}>RESTART (naar playersScreen)</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
                         style={styles.button}>
-                        <Text style={styles.buttonText}>GO TO MENU</Text>
+                        <Text style={styles.buttonText}>END GAME (naarhomescreen)</Text>
                     </TouchableHighlight>
                 </View>
             </View>
