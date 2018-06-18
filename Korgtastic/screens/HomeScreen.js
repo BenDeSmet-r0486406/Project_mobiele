@@ -20,16 +20,22 @@ export default class HomeScreen extends React.Component {
         {}
     }
 
-    /*
-    goToPlayer(players){
-        this.props.navigation.navigate("Players", {resetplayers : players});
-    }*/
-
     render() {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.homeView}>
-                <Image source={require('../img/logo.png')} style={{flex: 5, resizeMode: Image.resizeMode.contain, alignSelf: 'center'}} />
+                <Image source={require('../img/logo.png')}
+                    style={
+                        {
+                            flex: 5, 
+                            alignSelf: 'center',
+                            alignSelf: 'stretch',
+                            margin: 20,
+                            width: undefined,
+                            height: undefined,
+                        }
+                    }
+                    resizeMode='contain' />
                 <TouchableHighlight
                     style={styles.button}
                     onPress={() => navigate("Players", {players: []})}>
