@@ -33,7 +33,7 @@ export default class EndScreen extends React.Component {
                 <View style={{flex: 6, padding: 20}}>
                     <FlatList
                         data={this.state.players}
-                        keyExtractor={(item, index) => item.name}
+                        keyExtractor={(item, index) => index.toString()}
                         renderItem={({item}) =>
                             <View style={{flexDirection: 'row', height: 50}}>
                                 <Text style={{flex: 5, fontSize: 18}}>{item.name}</Text>
