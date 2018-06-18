@@ -71,7 +71,6 @@ export default class PlayersScreen extends React.Component {
             score: 0
         };
 
-        console.log(playerNames);
         this.setState({playerNames});
     }
 
