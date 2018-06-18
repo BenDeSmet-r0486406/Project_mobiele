@@ -45,14 +45,16 @@ export default class EndScreen extends React.Component {
 
     render() {
         let winner = this.state.positions[0];
+        this.state.positions.shift();
 
         return(
 
             <View style={{flex: 1}}>
-                <View style={{flex: 1, padding: 20}}>
-                    <Text>Winner:</Text>
+                <View style={{flex: 2, padding: 20}}>
+                    <Text style={{fontSize: 24, alignSelf: 'center'}}>Winner:</Text>
+                    <Text style={{fontSize: 42, alignSelf: 'center'}}>{winner.name}</Text>
                 </View>
-                <View style={{flex: 9, padding: 20}}>
+                <View style={{flex: 6, padding: 20}}>
                     <FlatList
                         data={this.state.positions}
                         keyExtractor={(item, index) => item.name}
