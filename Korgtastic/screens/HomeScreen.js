@@ -20,6 +20,10 @@ export default class HomeScreen extends React.Component {
         {}
     }
 
+    goToPlayer(players){
+        this.props.navigation.navigate("Players", {resetplayers : players});
+    }
+
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -27,7 +31,7 @@ export default class HomeScreen extends React.Component {
                 <Image source={require('../img/logo.png')} style={{flex: 5, resizeMode: Image.resizeMode.contain, alignSelf: 'center'}} />
                 <TouchableHighlight
                     style={styles.button}
-                    onPress={() => navigate('Players')}>
+                    onPress={() => this.goToPlayer([])}>
                     <Text style={styles.buttonText}>CREATE GAME</Text>
                 </TouchableHighlight>
                 <TouchableHighlight

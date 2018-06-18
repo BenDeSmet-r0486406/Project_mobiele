@@ -20,7 +20,7 @@ export default class PlayersScreen extends React.Component {
         this.state = 
         {
             playerInput: [],
-            playerNames: [],
+            playerNames: this.props.navigation.state.params.resetplayers,
         }
     }
 
@@ -77,6 +77,7 @@ export default class PlayersScreen extends React.Component {
             alert("Please enter valid player names.");
         } else {
             this.props.navigation.navigate("Game", {players : players});
+            this.setState({});
         }
     }
 
