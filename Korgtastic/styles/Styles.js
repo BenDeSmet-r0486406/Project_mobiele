@@ -27,15 +27,25 @@ var styles = StyleSheet.create({
     /* GAMESCREEN */
     scoreBoardView:
     {
+        paddingTop : 35,
+        paddingBottom : 5,
+        flexDirection : 'row',
         backgroundColor: '#333',
         padding: 10,
     },
     scoreBoardText: {
+        flex: 1,
         color: 'white',
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'right',
-        
+    },
+    scoreBoardNameText: {
+        flex: 9,
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'left',
     },
     questionView:
     {
