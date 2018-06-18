@@ -80,7 +80,7 @@ var styles = StyleSheet.create({
         color: '#999',
         alignSelf: 'center',
     },
-    playerInput:
+    playerTextInput:
     {
         height: 50,
         fontSize: 22,

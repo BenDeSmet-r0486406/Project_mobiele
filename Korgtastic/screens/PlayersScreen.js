@@ -19,8 +19,8 @@ export default class PlayersScreen extends React.Component {
 		super(props);
         this.state = 
         {
-            playerInput: [],
-            playerNames: this.props.navigation.state.params.resetplayers,
+            playerTextInputs: [],
+            players: this.props.navigation.state.params.players,
         }
     }
 
@@ -31,43 +31,42 @@ export default class PlayersScreen extends React.Component {
 
 
     addPlayer = (key) => {
-        let playerInput = this.state.playerInput;
+        let playerTextInputs = this.state.playerTextInputs;
 
-        if(playerInput.length < 10) {
-            playerInput.push(
+        if(playerTextInputs.length < 10) {
+            playerTextInputs.push(
                 <View style={{marginBottom: 15}} key={key}>
                     <Text style={{fontSize: 16, color: '#555'}}>Player {key + 1}:</Text>
                     <TextInput
-                        style={styles.playerInput}
+                        style={styles.playerTextInput}
                         onChangeText={name => this.setPlayerName(name, key)} 
                         maxLength={20}/>
                 </View>
             );
 
-
-            this.setState({playerInput});
+            this.setState({playerTextInputs});
         }
     }
 
     removePlayer = (key) => {
-        let playerInput = this.state.playerInput;
+        let playerTextInputs = this.state.playerTextInputs;
 
-        if(playerInput.length > 2) {
-            playerInput.pop();
+        if(playerTextInputs.length > 2) {
+            playerTextInputs.pop();
 
-            this.setState({playerInput});
+            this.setState({playerTextInputs});
         }
     }
 
     setPlayerName = (name, key) => {
-        let playerNames = this.state.playerNames;
+        let players = this.state.players;
 
-        playerNames[key] = {
+        players[key] = {
             name: name.trim(),
-            score: 0
+            score: 0,
         };
 
-        this.setState({playerNames});
+        this.setState({players});
     }
 
     goToGame(players){
@@ -103,10 +102,10 @@ export default class PlayersScreen extends React.Component {
                 </View>
                 <View style={{flex: 5, padding: 10}}>
                     <ScrollView>
-                        {this.state.playerInput.map((value, index) => { return value })}
+                        {this.state.playerTextInputs.map((value, index) => { return value })}
 
                         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginLeft: 130, marginRight: 130}}>
-                            <TouchableHighlight onPress={() => this.addPlayer(this.state.playerInput.length)}>
+                            <TouchableHighlight onPress={() => this.addPlayer(this.state.playerTextInputs.length)}>
                                 <Text style={styles.addPlayerButtonIcon}>+</Text>
                             </TouchableHighlight>
                             <TouchableHighlight onPress={() => this.removePlayer()}>
@@ -118,7 +117,7 @@ export default class PlayersScreen extends React.Component {
                 <View>
                     <TouchableHighlight
                         style={styles.button}
-                        onPress={() => this.goToGame(this.state.playerNames)}>
+                        onPress={() => this.goToGame(this.state.players)}>
                         <Text style={styles.buttonText}>START GAME</Text>
                     </TouchableHighlight>
                 </View>

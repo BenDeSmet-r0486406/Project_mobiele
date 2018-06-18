@@ -22,6 +22,13 @@ export default class EndScreen extends React.Component {
         }
     }
 
+    restartGame = (players) => {
+        players.forEach(p => {
+            console.log('reset player: ' + p.name);
+            p.score = 0;
+        });
+        this.props.navigation.navigate('Players', {players: players});
+    }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -45,9 +52,14 @@ export default class EndScreen extends React.Component {
                 </View>
                 <View style={styles.buttonsView}>
                     <TouchableHighlight
+                        onPress={() => this.restartGame(this.state.players)}
+                        style={styles.button}>
+                        <Text style={styles.buttonText}>RESTART GAME</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight
                         onPress={() => navigate('Home')}
                         style={styles.button}>
-                        <Text style={styles.buttonText}>RESTART</Text>
+                        <Text style={styles.buttonText}>GO TO MENU</Text>
                     </TouchableHighlight>
                 </View>
             </View>
