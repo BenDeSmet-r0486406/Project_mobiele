@@ -25,13 +25,12 @@ export default class PlayersScreen extends React.Component {
     }
 
     componentDidMount() {
-        this.addPlayerInput(0);
-        this.addPlayerInput(1);
+        this.addPlayer(0);
+        this.addPlayer(1);
     }
 
-    addPlayerInput = (key) => {
+    addPlayer = (key) => {
         let playerInput = this.state.playerInput;
-        let playerNames = this.state.playerNames;
 
         if(playerInput.length < 10) {
             playerInput.push(
@@ -39,27 +38,23 @@ export default class PlayersScreen extends React.Component {
                     <Text style={{fontSize: 16, color: '#555'}}>Player {key + 1}:</Text>
                     <TextInput
                         style={styles.playerInput}
-                        onChangeText={name => this.setPlayerName(name, key)} />
+                        onChangeText={name => this.setPlayerName(name, key)} 
+                        maxLength={20}/>
                 </View>
             );
 
-            playerNames.push();
 
             this.setState({playerInput});
-            this.setState({playerNames});
         }
     }
 
-    removePlayerInput = (key) => {
+    removePlayer = (key) => {
         let playerInput = this.state.playerInput;
-        let playerNames = this.state.playerNames;
 
         if(playerInput.length > 2) {
             playerInput.pop();
-            playerNames.pop();
 
             this.setState({playerInput});
-            this.setState({playerNames});
         }
     }
 
@@ -71,17 +66,32 @@ export default class PlayersScreen extends React.Component {
             score: 0
         };
 
-        console.log(playerNames);
         this.setState({playerNames});
     }
 
     goToGame(players){
-        if(this.state.playerNames.length >= 2){
-            this.props.navigation.navigate("Game", {players : players});
+        console.log('Validation result is ' + this.validatePlayerNames(players));
+
+        if(players.length < 2) {
+            alert("Minimum 2 players required.");
+        } else if(!this.validatePlayerNames(players)) {
+            alert("Please enter valid player names.");
         } else {
-            alert("minimum 2 players required");
+            this.props.navigation.navigate("Game", {players : players});
         }
     }
+
+    validatePlayerNames = (players) => {
+        let result = true;
+        
+        players.forEach(function (p) {
+            if(!p.name) {
+                result =  false;
+            }
+        });
+
+        return result;
+    } 
 
     render() {
         const { navigate } = this.props.navigation;
@@ -96,10 +106,10 @@ export default class PlayersScreen extends React.Component {
                         {this.state.playerInput.map((value, index) => { return value })}
 
                         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginLeft: 130, marginRight: 130}}>
-                            <TouchableHighlight onPress={() => this.addPlayerInput(this.state.playerInput.length)}>
+                            <TouchableHighlight onPress={() => this.addPlayer(this.state.playerInput.length)}>
                                 <Text style={styles.addPlayerButtonIcon}>+</Text>
                             </TouchableHighlight>
-                            <TouchableHighlight onPress={() => this.removePlayerInput()}>
+                            <TouchableHighlight onPress={() => this.removePlayer()}>
                                 <Text style={styles.addPlayerButtonIcon}>-</Text>
                             </TouchableHighlight>
                         </View>

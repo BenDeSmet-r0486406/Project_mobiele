@@ -23,9 +23,9 @@ export default class EndScreen extends React.Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
 
         return(
-
             <View style={{flex: 1}}>
                 <View style={{flex: 2, padding: 20}}>
                     <Text style={{fontSize: 24, alignSelf: 'center'}}>Winner:</Text>
@@ -44,12 +44,14 @@ export default class EndScreen extends React.Component {
                 </View>
                 <View style={styles.buttonsView}>
                     <TouchableHighlight
+                        onPress={() => navigate('Players')}
                         style={styles.button}>
-                        <Text style={styles.buttonText}>RESTART (naar playersScreen)</Text>
+                        <Text style={styles.buttonText}>RESTART GAME</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        onPress={() => navigate('Home')}
                         style={styles.button}>
-                        <Text style={styles.buttonText}>END GAME (naarhomescreen)</Text>
+                        <Text style={styles.buttonText}>GO TO MENU</Text>
                     </TouchableHighlight>
                 </View>
             </View>
