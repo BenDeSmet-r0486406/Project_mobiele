@@ -62,7 +62,7 @@ export default class PlayersScreen extends React.Component {
         let playerNames = this.state.playerNames;
 
         playerNames[key] = {
-            name: name,
+            name: name.trim(),
             score: 0
         };
 
@@ -70,8 +70,6 @@ export default class PlayersScreen extends React.Component {
     }
 
     goToGame(players){
-        console.log('Validation result is ' + this.validatePlayerNames(players));
-
         if(players.length < 2) {
             alert("Minimum 2 players required.");
         } else if(!this.validatePlayerNames(players)) {
