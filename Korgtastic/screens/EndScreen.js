@@ -28,27 +28,58 @@ export default class EndScreen extends React.Component {
                     score: 20,
                 },
                 {
+                    name: 'Cedric',
+                    score: 20,
+                },
+                {
                     name: 'Trump',
                     score: 150,
                 },
-            ]
+            ],
+            positions: [],
         }
     }
 
     componentDidMount() {
         this.sortPlayers();
+        this.calculatePositions();
     }
 
     sortPlayers = () => {
-        var players = this.state.players;
+        let players = this.state.players;
 
         players.sort(function(a, b) {
             return b.score - a.score;
         });
 
-        console.log(players);
-
         this.setState({players});
+    }
+
+    calculatePositions = () => {
+        let players = this.state.players;
+        let positions = this.state.positions;
+
+        let position = 1;
+
+        positions.push({
+            name: players[0].name,
+            score: players[0].score,
+            position: position,
+        });
+
+        for(let i = 1; i < players.length; i++) {
+            if(players[i - 1].score > players[i].score) {
+                position++;
+            }
+
+            positions.push({
+                name: players[i].name,
+                score: players[i].score,
+                position: position,
+            });
+        }
+
+        console.log(positions);
     }
 
     render() {
