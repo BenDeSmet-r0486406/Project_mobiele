@@ -27,10 +27,10 @@ export default class EndScreen extends React.Component {
         return(
 
             <View style={{flex: 1}}>
-                <View style={{flex: 1, padding: 20}}>
-                    <Text>Winner: </Text>
+                <View style={{flex: 2, padding: 20}}>
+                    <Text style={{fontSize: 24, alignSelf: 'center'}}>Winner:</Text>
                 </View>
-                <View style={{flex: 9, padding: 20}}>
+                <View style={{flex: 6, padding: 20}}>
                     <FlatList
                         data={this.state.players}
                         keyExtractor={(item, index) => item.name}
