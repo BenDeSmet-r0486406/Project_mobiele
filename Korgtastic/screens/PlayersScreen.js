@@ -18,34 +18,61 @@ export default class PlayersScreen extends React.Component {
 		super(props);
         this.state = 
         {
-            playerInput: []
+            playerInput: [],
+            playerNames: [],
         }
+    }
 
+    componentDidMount() {
         this.addPlayerInput(0);
         this.addPlayerInput(1);
     }
 
     addPlayerInput = (key) => {
         let playerInput = this.state.playerInput;
-        
+        let playerNames = this.state.playerNames;
+
         if(playerInput.length < 10) {
             playerInput.push(
-                <View style={{marginBottom: 15}}>
+                <View style={{marginBottom: 15}} key={key}>
                     <Text style={{fontSize: 16, color: '#555'}}>Player {key + 1}:</Text>
-                    <TextInput style={styles.playerInput} />
+                    <TextInput
+                        style={styles.playerInput}
+                        onChangeText={name => this.setPlayerName(name, key)} />
                 </View>
             );
+
+            playerNames.push();
+
             this.setState({playerInput});
+            this.setState({playerNames});
         }
     }
 
     removePlayerInput = (key) => {
         let playerInput = this.state.playerInput;
+        let playerNames = this.state.playerNames;
 
         if(playerInput.length > 2) {
             playerInput.pop();
+            playerNames.pop();
+
             this.setState({playerInput});
+            this.setState({playerNames});
         }
+    }
+
+    setPlayerName = (name, key) => {
+        let playerNames = this.state.playerNames;
+
+        playerNames[key] = {
+            name: name,
+            score: 0
+        };
+
+        console.log(playerNames);
+
+        this.setState({playerNames});
     }
 
     render() {
@@ -73,7 +100,7 @@ export default class PlayersScreen extends React.Component {
                 <View>
                     <TouchableHighlight
                         style={styles.button}
-                        onPress={() => navigate('Game')}>
+                        onPress={() => navigate("Game")}>
                         <Text style={styles.buttonText}>START GAME</Text>
                     </TouchableHighlight>
                 </View>
