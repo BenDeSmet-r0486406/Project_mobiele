@@ -6,11 +6,11 @@ import AppJs from '../App.js';
 export default class PlayersScreen extends React.Component {
 
     static navigationOptions = () => ({
-        title: 'PlayerScreen',
+        title: 'Add players',
         headerTintColor: '#ffffff',
         headerStyle:
             {
-                backgroundColor: '#000000',
+                backgroundColor: '#333',
             },
 
     });
