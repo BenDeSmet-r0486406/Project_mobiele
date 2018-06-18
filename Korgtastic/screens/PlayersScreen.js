@@ -29,6 +29,7 @@ export default class PlayersScreen extends React.Component {
         this.addPlayer(1);
     }
 
+
     addPlayer = (key) => {
         let playerInput = this.state.playerInput;
 

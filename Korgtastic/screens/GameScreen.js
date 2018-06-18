@@ -49,8 +49,6 @@ export default class GameScreen extends React.Component {
         var rand = 1 + Math.random() * (100 - 1);
         rand = Math.floor(rand);
 
-        console.log(rand);
-
         if(rand <= 30){
             newOpdracht = opdrachtenData.graad1[Math.floor(Math.random() * opdrachtenData.graad1.length)];
             this.setState({Graad : 1 });
