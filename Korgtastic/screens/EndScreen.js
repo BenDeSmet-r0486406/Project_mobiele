@@ -44,11 +44,12 @@ export default class EndScreen extends React.Component {
     }
 
     render() {
+        const { navigate } = this.props.navigation;
+
         let winner = this.state.positions[0];
         this.state.positions.shift();
 
         return(
-
             <View style={{flex: 1}}>
                 <View style={{flex: 2, padding: 20}}>
                     <Text style={{fontSize: 24, alignSelf: 'center'}}>Winner:</Text>
@@ -69,11 +70,13 @@ export default class EndScreen extends React.Component {
                 </View>
                 <View style={styles.buttonsView}>
                     <TouchableHighlight
-                        style={styles.button}>
+                        style={styles.button}
+                        onPress={() => navigate('Game')}>
                         <Text style={styles.buttonText}>PLAY AGAIN</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        style={styles.button}>
+                        style={styles.button}
+                        onPress={() => navigate('Home')}>
                         <Text style={styles.buttonText}>GO TO MENU</Text>
                     </TouchableHighlight>
                 </View>
