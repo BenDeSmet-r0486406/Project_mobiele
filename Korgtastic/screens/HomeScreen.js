@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { Text, View, TouchableHighlight } from 'react-native';
+import { Text, View, TouchableHighlight, Image } from 'react-native';
 
 export default class HomeScreen extends React.Component {
 
@@ -24,6 +24,7 @@ export default class HomeScreen extends React.Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={styles.homeView}>
+                <Image source={require('../img/logo.png')} style={{flex: 5, resizeMode: Image.resizeMode.contain, alignSelf: 'center'}} />
                 <TouchableHighlight
                     style={styles.button}
                     onPress={() => navigate('Players')}>
