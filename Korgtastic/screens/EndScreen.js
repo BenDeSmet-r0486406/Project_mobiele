@@ -17,13 +17,44 @@ export default class EndScreen extends React.Component {
     constructor(props) {
 		super(props);
         this.state = 
-        {}
+        {
+            players: [
+                {
+                    name: 'Ben',
+                    score: 50,
+                },
+                {
+                    name: 'Wouter',
+                    score: 20,
+                },
+                {
+                    name: 'Trump',
+                    score: 150,
+                },
+            ]
+        }
+    }
+
+    componentDidMount() {
+        this.sortPlayers();
+    }
+
+    sortPlayers = () => {
+        var players = this.state.players;
+
+        players.sort(function(a, b) {
+            return b.score - a.score;
+        });
+
+        console.log(players);
+
+        this.setState({players});
     }
 
     render() {
         return(
             <View>
-                <Text>EndScreen</Text>
+                <Text>Winner: {this.state.players[0].name}</Text>
             </View>
         );
     }
