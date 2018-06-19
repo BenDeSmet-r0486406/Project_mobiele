@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 
 var styles = StyleSheet.create({
     /* ALGEMEEN */
@@ -6,34 +7,34 @@ var styles = StyleSheet.create({
     button:
     {
         backgroundColor: '#3498db',
-        padding: 14,
-        marginTop: 16,
+        padding: responsiveWidth(2.75),
+        marginTop: responsiveWidth(3),
     },
     buttonText:
     {
         color: 'white',
         textAlign: 'center',
         fontWeight: '400',
-        fontSize:  26,
+        fontSize: responsiveFontSize(3.1),
     },
     mainView: 
     {
         flex: 1,
         flexDirection: 'column',
         alignItems: 'stretch',
-        padding: 16,
+        padding: responsiveWidth(3),
     },
     topInfo:
     {
         backgroundColor: '#DADAE4',
-        padding: 10,
-        marginBottom: 16,
+        padding: responsiveWidth(2),
+        marginBottom: responsiveHeight(4),
     },
     topInfoText: {
         alignSelf: 'center',
     },
     topInfoTitle: {
-        fontSize: 24,
+        fontSize: responsiveFontSize(3),
     },
 
     /* HOMESCREEN*/
@@ -59,7 +60,7 @@ var styles = StyleSheet.create({
     },
     playerInputButtonIcon:
     {
-        fontSize: 36,
+        fontSize: responsiveFontSize(8),
         color: '#999',
         alignSelf: 'center',
     },
@@ -68,13 +69,13 @@ var styles = StyleSheet.create({
         marginBottom: 15,
     },
     playerInputLabel: {
-        fontSize: 16,
+        fontSize: responsiveFontSize(2),
         color: '#555',
     },
     playerTextInput:
     {
         height: 50,
-        fontSize: 22,
+        fontSize: responsiveFontSize(2.7),
     },
 
     /* GAMESCREEN */
@@ -112,7 +113,7 @@ var styles = StyleSheet.create({
     },
     questionText:
     {
-        fontSize: 32,
+        fontSize: responsiveFontSize(3.75),
         flex: 1,
         textAlign: 'center',
         color: '#2c3e50',
