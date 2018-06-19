@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { Text, View, FlatList, TouchableHighlight } from 'react-native';
+import { Text, View, FlatList, TouchableHighlight, Alert } from 'react-native';
 
 export default class EndScreen extends React.Component {
 
@@ -70,9 +70,29 @@ export default class EndScreen extends React.Component {
         this.props.navigation.navigate('Players', {players: players});
     }
 
-    render() {
-        const { navigate } = this.props.navigation;
+    clickRestartButton = (players) => {
+        Alert.alert(
+            'Restart game',
+            'Are you sure you want to restart the game?',
+            [
+                {text: 'Cancel'},
+                {text: 'Restart game', onPress: () => this.restartGame(players)},
+            ],
+        )
+    }
 
+    clickHomeButton = () => {
+        Alert.alert(
+            'Go to menu',
+            'Are you sure you want to quit the game and go to the menu?',
+            [
+                {text: 'Cancel'},
+                {text: 'Go to menu', onPress: () => this.props.navigation.navigate('Home')},
+            ],
+        )
+    }
+
+    render() {
         return(
             <View style={{flex: 1}}>
                 <View style={{flex: 9}}>
@@ -97,12 +117,12 @@ export default class EndScreen extends React.Component {
                 </View>
                 <View style={styles.buttonsView}>
                     <TouchableHighlight
-                        onPress={() => this.restartGame(this.state.players)}
+                        onPress={() => this.clickRestartButton(this.state.players)}
                         style={styles.button}>
                         <Text style={styles.buttonText}>RESTART GAME</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        onPress={() => navigate('Home')}
+                        onPress={() => this.clickHomeButton()}
                         style={styles.button}>
                         <Text style={styles.buttonText}>GO TO MENU</Text>
                     </TouchableHighlight>
