@@ -160,20 +160,24 @@ var styles = StyleSheet.create({
         flex: 2,
         fontSize: 18,
     },
+
     /* QUESTIONSSCREEN */
     listHeader:
     {
-        paddingTop: 2,
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingBottom: 2,
-        fontSize: 18,
+        paddingTop: 12,
+        paddingBottom: 12,
+        paddingLeft: 16,
+        paddingRight: 16,
+        fontSize: 24,
         fontWeight: 'bold',
     },
     listItem:
     {
-        padding: 10,
-        fontSize: 14,
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 16,
+        paddingRight: 16,
+        fontSize: 18,
         backgroundColor: '#fefefe',
     },
 });
