@@ -81,34 +81,41 @@ var styles = StyleSheet.create({
     scoreBoardView:
     {
         paddingTop : 35,
-        paddingBottom : 5,
+        paddingBottom : 12,
+        paddingLeft: 16,
+        paddingRight: 16,
         flexDirection : 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         backgroundColor: '#333',
-        padding: 10,
     },
     scoreBoardText: {
-        flex: 1,
         color: 'white',
         fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'right',
     },
-    scoreBoardNameText: {
-        flex: 9,
+    scoreBoardButton: {
+        backgroundColor: '#3498db',
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 5,
+        paddingTop: 5,
+    },
+    scoreBoardButtonText: {
         color: 'white',
         fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'left',
     },
     questionView:
     {
-        flex: 12,
-        padding: 20,
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     questionText:
     {
-        fontSize: 36,
+        fontSize: 32,
+        flex: 1,
         textAlign: 'center',
+        color: '#2c3e50',
     },
     buttonsView:
     {
@@ -117,12 +124,10 @@ var styles = StyleSheet.create({
     refuseButton:
     {
         backgroundColor: '#e74c3c',
-        padding: 16,
     },
     acceptButton:
     {
         backgroundColor: '#2ecc71',
-        padding: 16,
     },
 
     /* QUESTIONSSCREEN */

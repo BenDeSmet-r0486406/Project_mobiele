@@ -95,24 +95,32 @@ export default class GameScreen extends React.Component {
         return(
             <View style={{flex: 1}}>
                 <View style={styles.scoreBoardView}>
-                    <Text style={styles.scoreBoardNameText}>{player.name} : {player.score}</Text>
+                    <Text style={styles.scoreBoardText}>{player.name}: {player.score} points</Text>
                     <TouchableHighlight
-                        onPress={() => this.goToEndGame(players)}>
-                        <Text style={styles.scoreBoardText}>ScoreBoard</Text>
+                        onPress={() => this.goToEndGame(players)}
+                        style={styles.scoreBoardButton}
+                        underlayColor='#2980b9'>
+                        <Text style={styles.scoreBoardButtonText}>ScoreBoard</Text>
                     </TouchableHighlight>
                 </View>
-                <View style={styles.questionView}>
-                    <Text style={styles.questionText}>{opdracht}</Text>
-                </View>
-                <View style={styles.buttonsView}>
+                <View style={styles.mainView}>
+                    <View style={styles.topInfo}>
+                        <Text style={[styles.topInfoText, styles.topInfoTitle]}>{player.name}</Text>
+                        <Text style={styles.topInfoText}>it's your turn!</Text>                    
+                    </View>
+                    <View style={styles.questionView}>
+                        <Text style={styles.questionText}>{opdracht}</Text>
+                    </View>
                     <TouchableHighlight
-                        style={styles.acceptButton}
-                        onPress={() => this.acceptChallenge()}>
+                        style={[styles.button, styles.acceptButton]}
+                        onPress={() => this.acceptChallenge()}
+                        underlayColor='#27ae60'>
                         <Text style={styles.buttonText}>DO IT + {graad}</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        style={styles.refuseButton}
-                        onPress={() => this.denyChallenge()}>
+                        style={[styles.button, styles.refuseButton]}
+                        onPress={() => this.denyChallenge()}
+                        underlayColor='#c0392b'>
                         <Text style={styles.buttonText}>REFUSE - {graad}</Text>
                     </TouchableHighlight>
                 </View>
