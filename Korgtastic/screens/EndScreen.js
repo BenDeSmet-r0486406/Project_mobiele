@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { Text, View, FlatList, TouchableHighlight, Alert } from 'react-native';
+import { Text, View, FlatList, TouchableHighlight, Alert, ScrollView } from 'react-native';
 
 export default class EndScreen extends React.Component {
 
@@ -8,9 +8,9 @@ export default class EndScreen extends React.Component {
         title: 'Back to the game',
         headerTintColor: '#ffffff',
         headerStyle:
-            {
-                backgroundColor: '#000000',
-            },
+        {
+            backgroundColor: '#2c3e50',
+        },
     });
 
     constructor(props) {
@@ -94,39 +94,35 @@ export default class EndScreen extends React.Component {
 
     render() {
         return(
-            <View style={{flex: 1}}>
-                <View style={{flex: 9}}>
-                    <View style={{flex: 1, flexDirection: 'row', backgroundColor: '#333', padding: 20}}>
-                        <Text style={{flex: 1, color: 'white', fontSize: 20}}>#</Text>
-                        <Text style={{flex: 5, color: 'white', fontSize: 20}}>Name</Text>
-                        <Text style={{flex: 2, color: 'white', fontSize: 20}}>Score</Text>
-                    </View>
-                    <View style={{flex: 20, padding: 20}}>
-                        <FlatList
-                            data={this.state.positions}
-                            keyExtractor={(item, index) => index.toString()}
-                            renderItem={({item}) =>
-                                <View style={{flexDirection: 'row', height: 50}}>
-                                    <Text style={{flex: 1, fontSize: 18}}>{item.position}</Text>
-                                    <Text style={{flex: 5, fontSize: 18}}>{item.name}</Text>
-                                    <Text style={{flex: 2, fontSize: 18}}>{item.score}</Text>
-                                </View>
-                            }
-                        />
-                    </View>
+            <View style={styles.mainView}>
+                <View style={styles.scoresHeader}>
+                    <Text style={[styles.scoresPositionColumn]}>#</Text>
+                    <Text style={styles.scoresNameColumn}>Name</Text>
+                    <Text style={styles.scoresPointsColumn}>Score</Text>
                 </View>
-                <View style={styles.buttonsView}>
-                    <TouchableHighlight
-                        onPress={() => this.clickRestartButton(this.state.players)}
-                        style={styles.button}>
-                        <Text style={styles.buttonText}>RESTART GAME</Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight
-                        onPress={() => this.clickHomeButton()}
-                        style={styles.button}>
-                        <Text style={styles.buttonText}>GO TO MENU</Text>
-                    </TouchableHighlight>
-                </View>
+                <ScrollView style={styles.scoresList}>
+                    <FlatList
+                        data={this.state.positions}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={({item}) =>
+                            <View style={styles.scoresItem}>
+                                <Text style={styles.scoresPositionColumn}>{item.position}</Text>
+                                <Text style={styles.scoresNameColumn}>{item.name}</Text>
+                                <Text style={styles.scoresPointsColumn}>{item.score}</Text>
+                            </View>
+                        }
+                    />
+                </ScrollView>
+                <TouchableHighlight
+                    onPress={() => this.clickRestartButton(this.state.players)}
+                    style={styles.button}>
+                    <Text style={styles.buttonText}>RESTART GAME</Text>
+                </TouchableHighlight>
+                <TouchableHighlight
+                    onPress={() => this.clickHomeButton()}
+                    style={styles.button}>
+                    <Text style={styles.buttonText}>GO TO MENU</Text>
+                </TouchableHighlight>
             </View>
         );
     }

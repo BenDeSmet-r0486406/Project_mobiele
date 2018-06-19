@@ -87,7 +87,7 @@ var styles = StyleSheet.create({
         flexDirection : 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#333',
+        backgroundColor: '#2c3e50',
     },
     scoreBoardText: {
         color: 'white',
@@ -117,10 +117,6 @@ var styles = StyleSheet.create({
         textAlign: 'center',
         color: '#2c3e50',
     },
-    buttonsView:
-    {
-        flex: 4,
-    },
     refuseButton:
     {
         backgroundColor: '#e74c3c',
@@ -130,6 +126,40 @@ var styles = StyleSheet.create({
         backgroundColor: '#2ecc71',
     },
 
+    /* ENDSCREEN */
+
+    scoresHeader: {
+        flexDirection: 'row', 
+        backgroundColor: '#DADAE4',
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 12,
+        paddingBottom: 12,
+    },
+    scoresList: {
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 12,
+        paddingBottom: 12,
+        marginTop: 12,
+    },
+    scoresItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        height: 50,
+    },
+    scoresPositionColumn: {
+        flex: 1,
+        fontSize: 18,
+    },
+    scoresNameColumn: {
+        flex: 7,
+        fontSize: 18,
+    },
+    scoresPointsColumn: {
+        flex: 2,
+        fontSize: 18,
+    },
     /* QUESTIONSSCREEN */
     listHeader:
     {
