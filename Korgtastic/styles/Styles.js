@@ -1,27 +1,38 @@
-import React, { Component, PropTypes } from 'react';
 import { StyleSheet } from 'react-native';
-import { AppRegistry, Text, View } from 'react-native';
 
 var styles = StyleSheet.create({
     /* ALGEMEEN */
     
     button:
     {
-        backgroundColor: '#303030',
+        backgroundColor: '#3498db',
         padding: 16,
+        marginTop: 16,
     },
     buttonText:
     {
         color: 'white',
         textAlign: 'center',
         fontSize:  24,
+        fontWeight: 'bold',
     },
-
-    /* HOMESCREEN*/
-    homeView: 
+    mainView: 
     {
         flex: 1,
         flexDirection: 'column',
+        alignItems: 'stretch',
+        padding: 16,
+    },
+
+    /* HOMESCREEN*/
+    logoImage:
+    {
+        flex: 1, 
+        alignSelf: 'center',
+        alignSelf: 'stretch',
+        width: undefined,
+        height: undefined,
+        margin: 25,
     },
 
     /* GAMESCREEN */

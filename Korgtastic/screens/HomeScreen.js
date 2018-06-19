@@ -17,27 +17,20 @@ export default class HomeScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={styles.homeView}>
+            <View style={styles.mainView}>
                 <Image source={require('../img/logo.png')}
-                    style={
-                        {
-                            flex: 5, 
-                            alignSelf: 'center',
-                            alignSelf: 'stretch',
-                            margin: 20,
-                            width: undefined,
-                            height: undefined,
-                        }
-                    }
+                    style={styles.logoImage}
                     resizeMode='contain' />
                 <TouchableHighlight
                     style={styles.button}
-                    onPress={() => navigate("Players", {players: []})}>
+                    onPress={() => navigate("Players", {players: []})}
+                    underlayColor="#2980b9">
                     <Text style={styles.buttonText}>CREATE GAME</Text>
                 </TouchableHighlight>
                 <TouchableHighlight
                     style={styles.button}
-                    onPress={() => navigate("Questions")}>
+                    onPress={() => navigate("Questions")}
+                    underlayColor="#2980b9">
                     <Text style={styles.buttonText}>VIEW QUESTIONS</Text>
                 </TouchableHighlight>
             </View>
