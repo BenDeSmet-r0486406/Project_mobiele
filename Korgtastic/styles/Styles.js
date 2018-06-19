@@ -32,6 +32,7 @@ var styles = StyleSheet.create({
     },
     topInfoText: {
         alignSelf: 'center',
+        textAlign: 'center',
     },
     topInfoTitle: {
         fontSize: responsiveFontSize(3),
@@ -54,9 +55,9 @@ var styles = StyleSheet.create({
     {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginLeft: 130,
-        marginRight: 130
+        justifyContent: 'space-between',
+        marginLeft: responsiveWidth(33),
+        marginRight: responsiveWidth(33),
     },
     playerInputButtonIcon:
     {
@@ -70,7 +71,7 @@ var styles = StyleSheet.create({
     },
     playerInputLabel: {
         fontSize: responsiveFontSize(2),
-        color: '#555',
+        color: '#888',
     },
     playerTextInput:
     {
@@ -89,10 +90,18 @@ var styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
+        flexWrap: 'wrap',
+    },
+    scoreBoardTextContainer: {
+        flex: 3,
+        flexDirection : 'row',
+        alignItems: 'center',
+        marginRight: 10,
     },
     scoreBoardText: {
         color: 'white',
-        fontSize: 18,
+        flex: 1,
+        fontSize: responsiveFontSize(2.1),
     },
     scoreBoardButton: {
         backgroundColor: '#3498db',

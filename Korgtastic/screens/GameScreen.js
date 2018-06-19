@@ -95,7 +95,9 @@ export default class GameScreen extends React.Component {
         return(
             <View style={{flex: 1}}>
                 <View style={styles.scoreBoardView}>
-                    <Text style={styles.scoreBoardText}>{player.name}: {player.score} points</Text>
+                    <Text style={styles.scoreBoardTextContainer}>
+                        <Text style={styles.scoreBoardText}>{player.name}: {player.score} points</Text>
+                    </Text>
                     <TouchableHighlight
                         onPress={() => this.goToEndGame(players)}
                         style={styles.scoreBoardButton}
