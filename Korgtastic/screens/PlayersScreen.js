@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { Text, View, TextInput, TouchableHighlight, ScrollView } from 'react-native';
-import AppJs from '../App.js';
+import { Text, View, TextInput, TouchableHighlight, ScrollView, Alert } from 'react-native';
 
 export default class PlayersScreen extends React.Component {
 
@@ -71,9 +70,10 @@ export default class PlayersScreen extends React.Component {
 
     goToGame(players){
         if(players.length < 2) {
-            alert("Minimum 2 players required.");
+            
+            Alert.alert('Add players', "At least 2 players are required to play this game.");
         } else if(!this.validatePlayerNames(players)) {
-            alert("Please enter valid player names.");
+            Alert.alert('Invalid playernames', 'Please enter valid playernames (not empty, max. 20 characters).');
         } else {
             this.props.navigation.navigate("Game", {players : players});
             this.setState({});
