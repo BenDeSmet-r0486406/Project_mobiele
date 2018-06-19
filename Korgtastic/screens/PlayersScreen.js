@@ -113,7 +113,7 @@ export default class PlayersScreen extends React.Component {
                                 <Text style={styles.playerInputButtonIcon}>+</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => this.removePlayer()}>
-                                <Text style={styles.playerInputButtonIcon}>-</Text>
+                                <Text style={styles.playerInputButtonIcon}>–</Text>
                             </TouchableOpacity>
                         </View>
                     </ScrollView>
