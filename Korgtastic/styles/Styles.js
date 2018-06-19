@@ -6,15 +6,15 @@ var styles = StyleSheet.create({
     button:
     {
         backgroundColor: '#3498db',
-        padding: 16,
+        padding: 14,
         marginTop: 16,
     },
     buttonText:
     {
         color: 'white',
         textAlign: 'center',
-        fontSize:  24,
-        fontWeight: 'bold',
+        fontWeight: '400',
+        fontSize:  26,
     },
     mainView: 
     {
@@ -22,6 +22,18 @@ var styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'stretch',
         padding: 16,
+    },
+    topInfo:
+    {
+        backgroundColor: '#DADAE4',
+        padding: 10,
+        marginBottom: 16,
+    },
+    topInfoText: {
+        alignSelf: 'center',
+    },
+    topInfoTitle: {
+        fontSize: 24,
     },
 
     /* HOMESCREEN*/
@@ -33,6 +45,36 @@ var styles = StyleSheet.create({
         width: undefined,
         height: undefined,
         margin: 25,
+    },
+
+    /* PLAYERSSCREEN */
+
+    playerInputButtonsView:
+    {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginLeft: 130,
+        marginRight: 130
+    },
+    playerInputButtonIcon:
+    {
+        fontSize: 36,
+        color: '#999',
+        alignSelf: 'center',
+    },
+    playerInputView:
+    {
+        marginBottom: 15,
+    },
+    playerInputLabel: {
+        fontSize: 16,
+        color: '#555',
+    },
+    playerTextInput:
+    {
+        height: 50,
+        fontSize: 22,
     },
 
     /* GAMESCREEN */
@@ -82,21 +124,6 @@ var styles = StyleSheet.create({
         backgroundColor: '#2ecc71',
         padding: 16,
     },
-
-    /* PLAYERSSCREEN */
-
-    addPlayerButtonIcon:
-    {
-        fontSize: 36,
-        color: '#999',
-        alignSelf: 'center',
-    },
-    playerTextInput:
-    {
-        height: 50,
-        fontSize: 22,
-    },
-
 
     /* QUESTIONSSCREEN */
     listHeader:
