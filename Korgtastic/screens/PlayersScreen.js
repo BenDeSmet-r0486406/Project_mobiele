@@ -120,7 +120,8 @@ export default class PlayersScreen extends React.Component {
                 </View>
                 <TouchableHighlight
                     style={styles.button}
-                    onPress={() => this.goToGame(this.state.players)}>
+                    onPress={() => this.goToGame(this.state.players)}
+                    underlayColor="#2980b9">
                     <Text style={styles.buttonText}>START GAME</Text>
                 </TouchableHighlight>
             </View>
