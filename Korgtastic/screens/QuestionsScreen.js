@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
 import { Text, View, SectionList } from 'react-native';
-import opdrachtenData from '../opdrachten/Normal.json';
+import opdrachtenData from '../opdrachten/opdrachten.json';
 
 export default class QuestionsScreen extends React.Component {
 
