@@ -1,106 +1,193 @@
-import React, { Component, PropTypes } from 'react';
 import { StyleSheet } from 'react-native';
-import { AppRegistry, Text, View } from 'react-native';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 
 var styles = StyleSheet.create({
     /* ALGEMEEN */
     
     button:
     {
-        backgroundColor: '#303030',
-        padding: 16,
+        backgroundColor: '#3498db',
+        padding: responsiveWidth(2.75),
+        marginTop: responsiveWidth(3),
     },
     buttonText:
     {
         color: 'white',
         textAlign: 'center',
-        fontSize:  24,
+        fontWeight: '400',
+        fontSize: responsiveFontSize(3.1),
     },
-
-    /* HOMESCREEN*/
-    homeView: 
+    mainView: 
     {
         flex: 1,
         flexDirection: 'column',
+        alignItems: 'stretch',
+        padding: responsiveWidth(3),
+    },
+    topInfo:
+    {
+        backgroundColor: '#DADAE4',
+        padding: responsiveWidth(2),
+        marginBottom: responsiveHeight(4),
+    },
+    topInfoText: {
+        alignSelf: 'center',
+        textAlign: 'center',
+    },
+    topInfoTitle: {
+        fontSize: responsiveFontSize(3),
+    },
+
+    /* HOMESCREEN*/
+    logoImage:
+    {
+        flex: 1, 
+        alignSelf: 'center',
+        alignSelf: 'stretch',
+        width: undefined,
+        height: undefined,
+        margin: 25,
+    },
+
+    /* PLAYERSSCREEN */
+
+    playerInputButtonsView:
+    {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginLeft: responsiveWidth(33),
+        marginRight: responsiveWidth(33),
+    },
+    playerInputButtonIcon:
+    {
+        fontSize: responsiveFontSize(8),
+        color: '#999',
+        alignSelf: 'center',
+    },
+    playerInputView:
+    {
+        marginBottom: 15,
+    },
+    playerInputLabel: {
+        fontSize: responsiveFontSize(2),
+        color: '#888',
+    },
+    playerTextInput:
+    {
+        height: 50,
+        fontSize: responsiveFontSize(2.7),
     },
 
     /* GAMESCREEN */
     scoreBoardView:
     {
         paddingTop : 35,
-        paddingBottom : 5,
+        paddingBottom : 12,
+        paddingLeft: 16,
+        paddingRight: 16,
         flexDirection : 'row',
-        backgroundColor: '#333',
-        padding: 10,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#2c3e50',
+        flexWrap: 'wrap',
+    },
+    scoreBoardTextContainer: {
+        flex: 3,
+        flexDirection : 'row',
+        alignItems: 'center',
+        marginRight: 10,
     },
     scoreBoardText: {
+        color: 'white',
         flex: 1,
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'right',
+        fontSize: responsiveFontSize(2.1),
     },
-    scoreBoardNameText: {
-        flex: 9,
+    scoreBoardButton: {
+        backgroundColor: '#3498db',
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 5,
+        paddingTop: 5,
+    },
+    scoreBoardButtonText: {
         color: 'white',
         fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'left',
     },
     questionView:
     {
-        flex: 12,
-        padding: 20,
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     questionText:
     {
-        fontSize: 36,
+        fontSize: responsiveFontSize(3.75),
+        flex: 1,
         textAlign: 'center',
-    },
-    buttonsView:
-    {
-        flex: 4,
+        color: '#2c3e50',
     },
     refuseButton:
     {
         backgroundColor: '#e74c3c',
-        padding: 16,
     },
     acceptButton:
     {
         backgroundColor: '#2ecc71',
-        padding: 16,
     },
 
-    /* PLAYERSSCREEN */
+    /* ENDSCREEN */
 
-    addPlayerButtonIcon:
-    {
-        fontSize: 36,
-        color: '#999',
-        alignSelf: 'center',
+    scoresHeader: {
+        flexDirection: 'row', 
+        backgroundColor: '#DADAE4',
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 12,
+        paddingBottom: 12,
     },
-    playerInput:
-    {
+    scoresList: {
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 12,
+        paddingBottom: 12,
+        marginTop: 12,
+    },
+    scoresItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         height: 50,
-        fontSize: 22,
     },
-
+    scoresPositionColumn: {
+        flex: 1,
+        fontSize: 18,
+    },
+    scoresNameColumn: {
+        flex: 7,
+        fontSize: 18,
+    },
+    scoresPointsColumn: {
+        flex: 2,
+        fontSize: 18,
+    },
 
     /* QUESTIONSSCREEN */
     listHeader:
     {
-        paddingTop: 2,
-        paddingLeft: 10,
-        paddingRight: 10,
-        paddingBottom: 2,
-        fontSize: 18,
+        paddingTop: 12,
+        paddingBottom: 12,
+        paddingLeft: 16,
+        paddingRight: 16,
+        fontSize: 24,
         fontWeight: 'bold',
     },
     listItem:
     {
-        padding: 10,
-        fontSize: 14,
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 16,
+        paddingRight: 16,
+        fontSize: 18,
         backgroundColor: '#fefefe',
     },
 });
