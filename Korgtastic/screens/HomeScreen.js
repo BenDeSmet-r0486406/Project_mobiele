@@ -5,13 +5,7 @@ import { Text, View, TouchableHighlight, Image } from 'react-native';
 export default class HomeScreen extends React.Component {
 
     static navigationOptions = () => ({
-        title: 'Korgtastic',
-        headerTintColor: '#ffffff',
-        headerStyle:
-            {
-                backgroundColor: '#000000',
-            },
-
+        header: null
     });
 
     constructor(props) {
