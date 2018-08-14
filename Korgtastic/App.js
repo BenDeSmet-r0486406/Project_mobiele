@@ -5,6 +5,7 @@ import QuestionsScreen from './screens/QuestionsScreen.js'
 import ScoreScreen from './screens/ScoreScreen';
 import PlayersScreen from './screens/PlayersScreen.js';
 import EndScreen from './screens/EndScreen.js';
+import AddQuestionScreen from './screens/AddQuestionScreen.js';
 import { YellowBox } from 'react-native';
 
 YellowBox.ignoreWarnings([
@@ -19,6 +20,7 @@ const Navigation = createStackNavigator({
   Questions:{screen: QuestionsScreen},
   Scoreboard:{screen: ScoreScreen},
   Players:{screen: PlayersScreen},
+  AddQuestion:{screen: AddQuestionScreen}
 });
 
 export default Navigation
