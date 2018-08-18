@@ -43,16 +43,22 @@ export default class PlayersScreen extends React.Component {
             );
 
             this.setState({playerTextInputs});
+
+            // Give the player an empty name to avoid crashes
+            this.setPlayerName("", key);
         }
     }
 
     removePlayer = (key) => {
         let playerTextInputs = this.state.playerTextInputs;
+        let players = this.state.players;
 
         if(playerTextInputs.length > 2) {
             playerTextInputs.pop();
+            players.pop()
 
             this.setState({playerTextInputs});
+            this.setState({players});
         }
     }
 
@@ -69,7 +75,6 @@ export default class PlayersScreen extends React.Component {
 
     goToGame(players){
         if(players.length < 2) {
-            
             Alert.alert('Add players', "At least 2 players are required to play this game.");
         } else if(!this.validatePlayerNames(players)) {
             Alert.alert('Invalid playernames', 'Please enter valid playernames (not empty, max. 20 characters).');
@@ -81,10 +86,10 @@ export default class PlayersScreen extends React.Component {
 
     validatePlayerNames = (players) => {
         let result = true;
-        
+
         players.forEach(function (p) {
             if(!p.name) {
-                result =  false;
+                result = false;
             }
         });
 
