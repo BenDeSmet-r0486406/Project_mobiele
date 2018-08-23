@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { Text, View, SectionList, TouchableHighlight } from 'react-native';
+import { Text, View, SectionList, TouchableHighlight, TouchableOpacity, Image, Alert } from 'react-native';
 import { FloatingAction } from 'react-native-floating-action';
 import opdrachtenData from '../opdrachten/opdrachten.json';
 
@@ -20,6 +20,21 @@ export default class QuestionsScreen extends React.Component {
         this.state = 
         {}
     }
+
+    clickDeleteButton = () => {
+        Alert.alert(
+            'Delete question',
+            'Are you sure you want to delete this question?',
+            [
+                {text: 'Cancel'},
+                {text: 'Delete question', onPress: () => this.deleteQuestion()},
+            ],
+        )
+    }
+
+    deleteQuestion = (item) => {
+        //TO DO
+    }
     
     render() {
         const { navigate } = this.props.navigation;
@@ -33,7 +48,16 @@ export default class QuestionsScreen extends React.Component {
                         {title: 'Difficulty level: 4', data: opdrachtenData.graad4},
                         {title: 'Difficulty level: 5', data: opdrachtenData.graad5},
                     ]}
-                    renderItem={({item}) => <Text style={styles.listItem}>{item}</Text>}
+                    renderItem={({item}) => 
+                        <View style={styles.listItem}>
+                            <Text style={styles.listText}>{item}</Text>
+                            <TouchableOpacity
+                                style={styles.listIcon}
+                                onPress={() => this.clickDeleteButton({item})}>
+                                <Image source={require('../img/trash.png')} style={styles.listIconImage} />
+                            </TouchableOpacity>
+                        </View>
+                    }
                     renderSectionHeader={({section}) => <Text style={styles.listHeader}>{section.title}</Text>}
                     keyExtractor={(item, index) => index}
                 />

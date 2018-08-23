@@ -37,6 +37,19 @@ var styles = StyleSheet.create({
     topInfoTitle: {
         fontSize: responsiveFontSize(3),
     },
+    inputView:
+    {
+        marginBottom: 15,
+    },
+    inputLabel: {
+        fontSize: responsiveFontSize(2),
+        color: '#888',
+    },
+    textInput:
+    {
+        height: 50,
+        fontSize: responsiveFontSize(2.7),
+    },
 
     /* HOMESCREEN*/
     logoImage:
@@ -64,19 +77,6 @@ var styles = StyleSheet.create({
         fontSize: responsiveFontSize(8),
         color: '#999',
         alignSelf: 'center',
-    },
-    playerInputView:
-    {
-        marginBottom: 15,
-    },
-    playerInputLabel: {
-        fontSize: responsiveFontSize(2),
-        color: '#888',
-    },
-    playerTextInput:
-    {
-        height: 50,
-        fontSize: responsiveFontSize(2.7),
     },
 
     /* GAMESCREEN */
@@ -183,12 +183,28 @@ var styles = StyleSheet.create({
     },
     listItem:
     {
+        flex: 1,
+        flexDirection: 'row',
         paddingTop: 8,
         paddingBottom: 8,
         paddingLeft: 16,
         paddingRight: 16,
-        fontSize: 18,
         backgroundColor: '#fefefe',
+    },
+    listText:
+    {
+        fontSize: 18,
+        flex: 7,
+    },
+    listIcon:
+    {
+        flex: 1,
+        alignItems: 'center',
+    },
+    listIconImage:
+    {
+        width: 32,
+        height: 32,
     },
 });
 module.exports = styles;
