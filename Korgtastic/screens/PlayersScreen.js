@@ -33,10 +33,10 @@ export default class PlayersScreen extends React.Component {
 
         if(playerTextInputs.length < 10) {
             playerTextInputs.push(
-                <View style={styles.playerInputView} key={key}>
-                    <Text style={styles.playerInputLabel}>Player {key + 1}:</Text>
+                <View style={styles.inputView} key={key}>
+                    <Text style={styles.inputLabel}>Player {key + 1}:</Text>
                     <TextInput
-                        style={styles.playerTextInput}
+                        style={styles.textInput}
                         onChangeText={name => this.setPlayerName(name, key)} 
                         maxLength={20}/>
                 </View>

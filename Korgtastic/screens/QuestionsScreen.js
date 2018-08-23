@@ -24,13 +24,7 @@ export default class QuestionsScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return(
-            <View>
-                <TouchableHighlight
-                    style={styles.button}
-                    onPress={() => navigate("AddQuestion")}
-                    underlayColor="#2980b9">
-                    <Text style={styles.buttonText}>Add</Text>
-                </TouchableHighlight>
+            <View style={styles.mainView}>
                 <SectionList
                     sections={[
                         {title: 'Difficulty level: 1', data: opdrachtenData.graad1},
@@ -43,6 +37,12 @@ export default class QuestionsScreen extends React.Component {
                     renderSectionHeader={({section}) => <Text style={styles.listHeader}>{section.title}</Text>}
                     keyExtractor={(item, index) => index}
                 />
+                <TouchableHighlight
+                    style={styles.button}
+                    onPress={() => navigate("AddQuestion")}
+                    underlayColor="#2980b9">
+                    <Text style={styles.buttonText}>ADD QUESTION</Text>
+                </TouchableHighlight>
             </View>
         );
     }
