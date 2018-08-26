@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
-import { Text, View, TouchableHighlight } from 'react-native';
+import { Text, View, TouchableHighlight, AsyncStorage, Alert } from 'react-native';
 import opdrachtenData from '../opdrachten/opdrachten.json';
 
 export default class GameScreen extends React.Component {
@@ -12,16 +12,43 @@ export default class GameScreen extends React.Component {
     constructor(props) {
         super(props);
         
-        let newOpdracht = this.randomOpdracht('none');
 
         this.state = 
         {
             players : this.props.navigation.state.params.players,
             turn : 0,
-            opdracht : newOpdracht.opdracht,
-            graad : newOpdracht.graad, 
+            opdracht : "",
+            graad : 0,
+            opdrachtenGraad1 : [],
+            opdrachtenGraad2 : [],
+            opdrachtenGraad3 : [],
+            opdrachtenGraad4 : [],
+            opdrachtenGraad5 : [],
+            isLoading: true,
+            OpdrachtenList : ""
         }
+    }
 
+    componentDidMount = async () =>  {
+        while (this.state.isLoading){
+            try{
+                let opdrachtjes = await AsyncStorage.getItem('opdrachten');
+                this.setState({OpdrachtenList : opdrachtjes});
+                let parsed = JSON.parse(opdrachtjes);
+                this.setState({opdrachtenGraad1 : parsed.graad1});
+                this.setState({opdrachtenGraad2 : parsed.graad2});
+                this.setState({opdrachtenGraad3 : parsed.graad3});
+                this.setState({opdrachtenGraad4 : parsed.graad4});
+                this.setState({opdrachtenGraad5 : parsed.graad5});
+                this.setState({isLoading : false});
+                newQuestion = this.randomOpdracht('none');
+                this.setState({opdracht : newQuestion.opdracht});
+                this.setState({graad : newQuestion.graad})
+            }
+            catch (error){
+                alert(error);
+            }
+        }
     }
 
     acceptChallenge = () => {
@@ -59,19 +86,19 @@ export default class GameScreen extends React.Component {
             rand = Math.floor(rand);
 
             if(rand <= 30){
-                newOpdracht = opdrachtenData.graad1[Math.floor(Math.random() * opdrachtenData.graad1.length)];
+                newOpdracht = this.state.opdrachtenGraad1[Math.floor(Math.random() * this.state.opdrachtenGraad1.length)];
                 newGraad = 1;
             } else if(rand > 30 && rand <= 55 ){
-                newOpdracht = opdrachtenData.graad2[Math.floor(Math.random() * opdrachtenData.graad2.length)];
+                newOpdracht = this.state.opdrachtenGraad2[Math.floor(Math.random() * this.state.opdrachtenGraad2.length)];
                 newGraad = 2;
             } else if(rand > 55 && rand <= 75 ){
-                newOpdracht = opdrachtenData.graad3[Math.floor(Math.random() * opdrachtenData.graad3.length)];
+                newOpdracht = this.state.opdrachtenGraad3[Math.floor(Math.random() * this.state.opdrachtenGraad3.length)];
                 newGraad = 3;
             } else if(rand > 75 && rand <= 90 ){
-                newOpdracht = opdrachtenData.graad4[Math.floor(Math.random() * opdrachtenData.graad4.length)];
+                newOpdracht = this.state.opdrachtenGraad4[Math.floor(Math.random() * this.state.opdrachtenGraad4.length)];
                 newGraad = 4;
             } else if(rand > 90 && rand <= 100 ){
-                newOpdracht = opdrachtenData.graad5[Math.floor(Math.random() * opdrachtenData.graad5.length)];
+                newOpdracht = this.state.opdrachtenGraad5[Math.floor(Math.random() * this.state.opdrachtenGraad5.length)];
                 newGraad = 5;
             }
         } while (lastOpdracht == newOpdracht);
@@ -91,7 +118,9 @@ export default class GameScreen extends React.Component {
         let player = players[this.state.turn];
         let opdracht = this.state.opdracht;
         let graad = this.state.graad;
-
+        if (this.state.isLoading) {
+            return <View><Text>Loading...</Text></View>;
+        }
         return(
             <View style={{flex: 1}}>
                 <View style={styles.scoreBoardView}>
