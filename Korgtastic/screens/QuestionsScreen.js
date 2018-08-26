@@ -2,7 +2,6 @@ import React from 'react';
 import styles from '../styles/Styles.js';
 import { Text, View, SectionList, TouchableHighlight, TouchableOpacity, Image, Alert , AsyncStorage} from 'react-native';
 import { FloatingAction } from 'react-native-floating-action';
-import opdrachtenData from '../opdrachten/opdrachten.json';
 
 export default class QuestionsScreen extends React.Component {
 
@@ -66,7 +65,7 @@ export default class QuestionsScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         if (this.state.isLoading) {
-            return <View><Text>Loading...</Text></View>;
+            return <View style={styles.questionView}><Text style={styles.questionText}>Loading...</Text></View>;
         }
         return(
             <View style={styles.mainView}>

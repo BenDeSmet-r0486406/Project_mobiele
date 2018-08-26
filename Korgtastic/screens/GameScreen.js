@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
 import { Text, View, TouchableHighlight, AsyncStorage, Alert } from 'react-native';
-import opdrachtenData from '../opdrachten/opdrachten.json';
 
 export default class GameScreen extends React.Component {
 
@@ -119,7 +118,7 @@ export default class GameScreen extends React.Component {
         let opdracht = this.state.opdracht;
         let graad = this.state.graad;
         if (this.state.isLoading) {
-            return <View><Text>Loading...</Text></View>;
+            return  <View style={styles.questionView}><Text style={styles.questionText}>Loading...</Text></View>;
         }
         return(
             <View style={{flex: 1}}>

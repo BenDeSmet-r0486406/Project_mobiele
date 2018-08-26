@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from '../styles/Styles.js';
 import { Text, View, TouchableHighlight, Image, TextInput, Picker, AsyncStorage , Alert} from 'react-native';
-import opdrachtenData from '../opdrachten/opdrachten.json';
 
-
-/* aan opdrachten dat binnen halen, opdrachtendata.graadx[] question toevoegen en overschrijven */
 export default class AddQuestionScreen extends React.Component {
 
     static navigationOptions = () => ({
