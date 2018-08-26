@@ -42,12 +42,10 @@ export default class AddQuestionScreen extends React.Component {
             cat5 = parsed.graad5;
             if (this.state.category == "1"){
                 cat1.push(this.state.question);
-                Alert.alert(cat1[cat1.length - 1])
             }else if (this.state.category == "2"){
                 cat2.push(this.state.question);
             }else if (this.state.category == "3"){
                 cat3.push(this.state.question);
-                Alert.alert(cat3[cat3.length - 1] +", "+ this.state.question+", "+ this.state.category)
             }else if (this.state.category == "4"){
                 cat4.push(this.state.question);
             }else if (this.state.category == "5"){
@@ -79,15 +77,6 @@ export default class AddQuestionScreen extends React.Component {
         navigate("Home")
     }
 
-    displayOpdrachten = async () => {
-        try{
-            let opdrachten = await AsyncStorage.getItem('opdrachten');
-            let parsed =  JSON.parse(opdrachten);
-            alert(parsed.graad2);
-        }catch (error){
-            alert(error);
-        }
-    }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -99,7 +88,7 @@ export default class AddQuestionScreen extends React.Component {
                         <TextInput
                             style={styles.textInput}
                             onChangeText={question => this.setState({question: question})} 
-                            maxLength={20}/>
+                            maxLength={128}/>
                     </View>
                     
                     <View style={styles.inputView}>
@@ -113,12 +102,6 @@ export default class AddQuestionScreen extends React.Component {
                         </Picker>
                     </View>
                 </View>
-                <TouchableHighlight
-                    style={styles.button}
-                    onPress={() => this.displayOpdrachten()}
-                    underlayColor="#2980b9">
-                    <Text style={styles.buttonText}>Display</Text>
-                </TouchableHighlight>
                 <TouchableHighlight
                     style={styles.button}
                     onPress={() => this.addQuestion()}
