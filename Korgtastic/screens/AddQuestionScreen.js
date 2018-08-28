@@ -70,8 +70,18 @@ export default class AddQuestionScreen extends React.Component {
         }catch (error){
             alert(error);
         }
+        
         const { navigate } = this.props.navigation;
         navigate("Home")
+    }
+
+    validate = () =>{
+        if(this.state.question.trim()=="") {
+                alert("question can't be empty and has a max of 128 characters");
+        }else{
+            
+            this.addQuestion();
+        }
     }
 
 
@@ -101,7 +111,7 @@ export default class AddQuestionScreen extends React.Component {
                 </View>
                 <TouchableHighlight
                     style={styles.button}
-                    onPress={() => this.addQuestion()}
+                    onPress={() => this.validate()}
                     underlayColor="#2980b9">
                     <Text style={styles.buttonText}>SAVE QUESTION</Text>
                 </TouchableHighlight>
