@@ -28,21 +28,6 @@ export default class QuestionsScreen extends React.Component {
         }
     }
 
-    clickDeleteButton = () => {
-        Alert.alert(
-            'Delete question',
-            'Are you sure you want to delete this question?',
-            [
-                {text: 'Cancel'},
-                {text: 'Delete question', onPress: () => this.deleteQuestion()},
-            ],
-        )
-    }
-
-    deleteQuestion = (item) => {
-        //TO DO
-    }
-
     componentDidMount = async () =>  {
         while (this.state.isLoading){
             try{
@@ -80,11 +65,6 @@ export default class QuestionsScreen extends React.Component {
                     renderItem={({item}) => 
                         <View style={styles.listItem}>
                             <Text style={styles.listText}>{item}</Text>
-                            <TouchableOpacity
-                                style={styles.listIcon}
-                                onPress={() => this.clickDeleteButton({item})}>
-                                <Image source={require('../img/trash.png')} style={styles.listIconImage} />
-                            </TouchableOpacity>
                         </View>
                     }
                     renderSectionHeader={({section}) => <Text style={styles.listHeader}>{section.title}</Text>}
